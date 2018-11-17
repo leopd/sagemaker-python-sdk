@@ -126,7 +126,7 @@ class _SageMakerContainer(object):
         except RuntimeError as e:
             # _stream_output() doesn't have the command line. We will handle the exception
             # which contains the exit code and append the command line to it.
-            msg = "Failed to run: %s, %s" % (compose_command, str(e))
+            msg = "Failed to run: `%s`, %s" % (' '.join(compose_command), str(e))
             raise RuntimeError(msg)
 
         artifacts = self.retrieve_artifacts(compose_data, output_data_config, job_name)
